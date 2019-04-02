@@ -8,7 +8,7 @@
         <!-- On charge le moteur de template mustache https://mustache.github.io/ -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
         <!-- un JS pour les fonctions AJAX et JSON -->
-        <script src="views/js/index.js"></script>
+        <script src="Views/JavaScript/index.js"></script>
         <!-- un CSS pour formatter la page web -->
         <!-- <link rel="stylesheet" type="text/css" href="views/css/index_client.css"> -->
         <!-- On charge les polices Google -->
@@ -25,6 +25,7 @@
 
         <!-- Le template qui sert à formatter la liste des produits -->
         <script id="productsTemplate" type="text/template">
+            
             <TABLE>
             <tr>
             <th>Référence</th><th>Prix</th><th>Stock</th><th>Description</th><th>Quantité</th><th>Compagnie de transport</th><th>Commander</th>
@@ -51,6 +52,7 @@
             </TR>
             {{/records}}
             </TABLE>
+            
         </script>
 
         <h1>Mes commandes</h1>
