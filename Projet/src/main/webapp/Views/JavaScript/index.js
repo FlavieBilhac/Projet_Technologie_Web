@@ -20,7 +20,7 @@ function showProducts() {
                     // On combine le template avec le résultat de la requête
                     var processedTemplate = Mustache.to_html(template, result);
                     // On affiche la liste des produits
-                    $('#products').html("");
+                    $('#products').html(processedTemplate);
                 }
     });
 }
