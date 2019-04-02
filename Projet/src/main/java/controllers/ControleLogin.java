@@ -60,11 +60,11 @@ public class ControleLogin extends HttpServlet{
             // On choisit la page d'affichage
             // si c'est l'admin, on ouvre la page admin
             if (userName.equals(Admin)) {
-                jspView = "views/index_admin.html";
+                jspView = "views/Admin.html";
             } 
             // sinon on ouvre la page client
             else {
-                jspView = "views/index_client.html";
+                jspView = "views/Client.html";
             }
         }
         // On va vers la page choisie
