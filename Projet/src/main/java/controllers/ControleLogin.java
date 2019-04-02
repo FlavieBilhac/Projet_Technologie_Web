@@ -86,7 +86,7 @@ public class ControleLogin extends HttpServlet{
         try {
             processRequest(request, response);
         } catch (DAOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControleLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -104,7 +104,7 @@ public class ControleLogin extends HttpServlet{
         try {
             processRequest(request, response);
         } catch (DAOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControleLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
