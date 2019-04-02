@@ -54,17 +54,17 @@ public class ControleLogin extends HttpServlet{
         String jspView;
         if (null == userName) { // L'utilisateur n'est pas connecté
             // On choisit la page de login
-            jspView = "views/login.jsp";
+            jspView = "Views/login.jsp";
 
         } else { // L'utilisateur est connecté
             // On choisit la page d'affichage
             // si c'est l'admin, on ouvre la page admin
             if (userName.equals(Admin)) {
-                jspView = "views/Admin.html";
+                jspView = "Views/Admin.html";
             } 
             // sinon on ouvre la page client
             else {
-                jspView = "views/Client.html";
+                jspView = "../Views/Client.html";
             }
         }
         // On va vers la page choisie
