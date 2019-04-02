@@ -64,7 +64,7 @@ public class ControleLogin extends HttpServlet{
             } 
             // sinon on ouvre la page client
             else {
-                jspView = "../Views/Client.html";
+                jspView = "Views/Client.html";
             }
         }
         // On va vers la page choisie
@@ -129,8 +129,8 @@ public class ControleLogin extends HttpServlet{
         }
 
         // Le login/password défini dans web.xml pour l'administrateur
-        String login = getInitParameter("admin");
-        String password = getInitParameter("admin");
+        String login = getInitParameter("login");
+        String password = getInitParameter("password");
 
         DAO dao = new DAO(DataSourceFactory.getDataSource());
 
