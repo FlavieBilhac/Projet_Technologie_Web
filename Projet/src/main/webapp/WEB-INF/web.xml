@@ -6,11 +6,11 @@
         <!-- Les identifiants de l'administrateur pour se connecter -->
         <init-param>
             <param-name>login</param-name>
-            <param-value>root</param-value>
+            <param-value>admin</param-value>
         </init-param>
         <init-param>
             <param-name>password</param-name>
-            <param-value>root</param-value>
+            <param-value>admin</param-value>
         </init-param>
     </servlet>
     
