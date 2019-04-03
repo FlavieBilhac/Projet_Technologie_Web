@@ -7,8 +7,11 @@ and open the template in the editor.
     Created on : 3 avr. 2019, 08:46:30
     Author     : ssylvest
 */
+*{box-sizing:border-box;}
 
 body {
+    
+        background-image: linear-gradient(rgb(70,130,180), white);
 	font-family:"Arial";
 	font-size: 0.8em;
 	color:black;
@@ -17,7 +20,7 @@ body {
 
 header{
 	background-color: #2c3e50;
-        
+        margin-lef:0px;
 	padding-top:5px;
 	padding-bottom:5px;
 	padding-left:30px;
@@ -27,15 +30,21 @@ header{
 	align-items:center;
 }
 input[type=submit]{
-    
+  
+    align-content: center;
     background-color: #2c3e50;
     border-color: silver;
+    border-width: 1px;
     font-family: 'Roboto';
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold; 
     height: 40px;
     cursor:pointer;
-    border:none;
     width:110px;
     color:silver;
+}
+
+/* Permet de modifier les inputs submit au survol de la souris */
+input[type=submit]:hover{
+    color: white; 
 }
