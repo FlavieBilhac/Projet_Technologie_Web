@@ -16,7 +16,7 @@
         <!-- La box du login -->
         <div class="loginBox">
             <!-- L'image cadenas -->
-            <img src="<c:url value="images/lock.png"/>" class="lock">
+            <img src="<c:url value="Views/images/lock.png"/>" class="lock">
             <h2>Connectez-vous</h2>
             <!-- Un formulaire pour renvoyer les paramètres saisis par l'utilisateur -->
             <form action="<c:url value="/" />" method="POST">
