@@ -6,10 +6,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Bienvenue</title>
+        <link rel="shortcut icon" href="Views/images/lock.png">
         <!-- un CSS pour formatter la page web -->
         <link rel="stylesheet" href="<c:url value="Views/css/login.css"/>">
         <!-- On charge les polices Google -->
-        <link rel="stylesheet" href="<c:url value="https://fonts.googleapis.com/css?family=Oswald:400,500|Roboto:300,400,500,700"/>">
+        <link rel="stylesheet" href="<c:url value="https://fonts.googleapis.com/css?family=Dosis:400,500|Dosis:300,400,500,700"/>">
+        
 
     </head>
     <body>
@@ -17,10 +19,10 @@
         <div class="loginBox">
             <!-- L'image cadenas -->
             <img src="<c:url value="Views/images/lock.png"/>" class="lock">
-            <h2>Connectez-vous</h2>
+            <h2>Connexion</h2>
             <!-- Un formulaire pour renvoyer les paramètres saisis par l'utilisateur -->
             <form action="<c:url value="/" />" method="POST">
-                <p>Nom d'utilisateur</p>
+                <p>Identifiant</p>
                 <input type='text' name='loginParam' required>
                 <p>Mot de passe</p>
                 <input type='password' name='passwordParam' required>

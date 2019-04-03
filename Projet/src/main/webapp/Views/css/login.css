@@ -8,7 +8,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 body {
   margin: 0;
   padding: 0;
-  background-size: auto;
+  background-size: contain;
+  background-position: bottom 0px right 0px;
   background: url("../images/bg_login.jpg");
 }
 
@@ -25,7 +26,7 @@ body {
   background: rgba(0, 26, 51, .9);
 }
 
-/* Permet de modifier l'image cadenas' */
+/* Permet de modifier logo */
 .lock {
   width: 100px;
   height: 100px;
@@ -38,7 +39,8 @@ body {
 
 /* Permet de modifier les titres de niveau h2 */
 h2 {
-  font-family: 'Roboto';
+  font-family: 'Dosis';
+  letter-spacing: 2px;
   margin: 0;
   padding: 0 0 20px;
   color: rgb(247,248,249);
@@ -50,7 +52,7 @@ h2 {
   margin: 0;
   padding: 0;
   color: rgb(247,248,249);
-  font-family:'Oswald';
+  font-family:'Dosis';
   letter-spacing: 2px;
 }
 
