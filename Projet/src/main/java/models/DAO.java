@@ -127,66 +127,92 @@ public class DAO {
         }
         return result;
     }
+
+
+    /**
+     * @return le prochain numéro de commande à créer (table : PURCHASE_ORDER)
+     * @throws DAOException
+     */
+    public int orderNum() throws DAOException {
+        int result = 0;
+        String sql = "SELECT ORDER_NUM FROM PURCHASE_ORDER "
+                + "WHERE ORDER_NUM = (SELECT MAX(ORDER_NUM) FROM PURCHASE_ORDER)";
+        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
+                Statement stmt = connection.createStatement(); // On crée un Statement pour exécuter une requête
+                ResultSet rs = stmt.executeQuery(sql) // Un ResultSet pour parcourir les enregistrements du résultat
+                ) {
+            if (rs.next()) { // Pas la peine de faire while, il n'y a qu'un seul enregistrement
+                // On récupère le champs nécessaire de l'enregistrement courant
+                result = rs.getInt("ORDER_NUM");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger("DAO").log(Level.SEVERE, null, ex);
+            throw new DAOException(ex.getMessage());
+        }
+        return result;
+    }
+    
+    
+    /**
+     * @param order_num le numéro de la commande
+     * @param customer_id le numéro de client qui passe la commande
+     * @param product_id la référence produit
+     * @param quantity la quantité à commander
+     * @param shipping_cost les frais de livraison
+     * @param sales_date la date de la commande
+     * @param shipping_date la date d'expédition
+     * @param freight_company la compagnie de transport
+     * @return le nombre d'enregistrements insérés (1 ou 0 si échec) (table : PURCHASE_ORDER)
+     * @throws DAOException
+     */
+    public int ajoutCommande(int order_num, int customer_id, int product_id, int quantity, float shipping_cost, Date sales_date, Date shipping_date, String freight_company) 
+            throws DAOException {
+        int result = 0;
+        String sql = "INSERT INTO PURCHASE_ORDER(order_num, customer_id, product_id, quantity, shipping_cost, sales_date, shipping_date, freight_company) "
+                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?)"; // Une requête SQL paramétrée
+        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
+                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
+            // On attribue les paramètres aux champs de l'enregistrement courant
+            pstmt.setInt(1, order_num);
+            pstmt.setInt(2, customer_id);
+            pstmt.setInt(3, product_id);
+            pstmt.setInt(4, quantity);
+            pstmt.setFloat(5, shipping_cost);
+            pstmt.setDate(6, sales_date);
+            pstmt.setDate(7, shipping_date);
+            pstmt.setString(8, freight_company);
+            result = pstmt.executeUpdate(); // On exécute l'update du PreparedStatement
+        } catch (SQLException ex) {
+            Logger.getLogger("DAO").log(Level.SEVERE, null, ex);
+            throw new DAOException(ex.getMessage());
+        }
+        return result;
+    }
+
+    /**
+     * @param quantity la nouvelle quantité choisie
+     * @param product_id la clé du produit à modifier
+     * @return l'enregistrement modifié (1 ou 0 si non trouvé) (table : PRODUCT)
+     * @throws DAOException
+     */
+    public int updateQuantity(int quantity, int product_id) throws DAOException {
+        int result = 0;
+        String sql = "UPDATE PRODUCT "
+                + "SET quantity_on_hand = quantity_on_hand - ? "
+                + "WHERE product_id = ?"; // Une requête SQL paramétrée
+        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
+                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
+            // On attribue les paramètres aux champs de l'enregistrement courant
+            pstmt.setInt(1, quantity);
+            pstmt.setInt(2, product_id);
+            result = pstmt.executeUpdate(); // On exécute l'update du PreparedStatement
+        } catch (SQLException ex) {
+            Logger.getLogger("DAO").log(Level.SEVERE, null, ex);
+            throw new DAOException(ex.getMessage());
+        }
+        return result;
+    }
 }
-//
-//    /**
-//     * @return le prochain numéro de commande à créer (table : PURCHASE_ORDER)
-//     * @throws DAOException
-//     */
-//    public int orderNum() throws DAOException {
-//        int result = 0;
-//        String sql = "SELECT ORDER_NUM FROM PURCHASE_ORDER "
-//                + "WHERE ORDER_NUM = (SELECT MAX(ORDER_NUM) FROM PURCHASE_ORDER)";
-//        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
-//                Statement stmt = connection.createStatement(); // On crée un Statement pour exécuter une requête
-//                ResultSet rs = stmt.executeQuery(sql) // Un ResultSet pour parcourir les enregistrements du résultat
-//                ) {
-//            if (rs.next()) { // Pas la peine de faire while, il n'y a qu'un seul enregistrement
-//                // On récupère le champs nécessaire de l'enregistrement courant
-//                result = rs.getInt("ORDER_NUM");
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger("DAO").log(Level.SEVERE, null, ex);
-//            throw new DAOException(ex.getMessage());
-//        }
-//        return result;
-//    }
-//    
-//    /**
-//     * @param order_num le numéro de la commande
-//     * @param customer_id le numéro de client qui passe la commande
-//     * @param product_id la référence produit
-//     * @param quantity la quantité à commander
-//     * @param shipping_cost les frais de livraison
-//     * @param sales_date la date de la commande
-//     * @param shipping_date la date d'expédition
-//     * @param freight_company la compagnie de transport
-//     * @return le nombre d'enregistrements insérés (1 ou 0 si échec) (table : PURCHASE_ORDER)
-//     * @throws DAOException
-//     */
-//    public int ajoutCommande(int order_num, int customer_id, int product_id, int quantity, float shipping_cost, Date sales_date, Date shipping_date, String freight_company) 
-//            throws DAOException {
-//        int result = 0;
-//        String sql = "INSERT INTO PURCHASE_ORDER(order_num, customer_id, product_id, quantity, shipping_cost, sales_date, shipping_date, freight_company) "
-//                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?)"; // Une requête SQL paramétrée
-//        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
-//                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
-//            // On attribue les paramètres aux champs de l'enregistrement courant
-//            pstmt.setInt(1, order_num);
-//            pstmt.setInt(2, customer_id);
-//            pstmt.setInt(3, product_id);
-//            pstmt.setInt(4, quantity);
-//            pstmt.setFloat(5, shipping_cost);
-//            pstmt.setDate(6, sales_date);
-//            pstmt.setDate(7, shipping_date);
-//            pstmt.setString(8, freight_company);
-//            result = pstmt.executeUpdate(); // On exécute l'update du PreparedStatement
-//        } catch (SQLException ex) {
-//            Logger.getLogger("DAO").log(Level.SEVERE, null, ex);
-//            throw new DAOException(ex.getMessage());
-//        }
-//        return result;
-//    }
 //
 //    /**
 //     * @param order_num la clé de la commande à détruire
@@ -233,29 +259,7 @@ public class DAO {
 //        return result;
 //    }
 //
-//    /**
-//     * @param quantity la nouvelle quantité choisie
-//     * @param product_id la clé du produit à modifier
-//     * @return l'enregistrement modifié (1 ou 0 si non trouvé) (table : PRODUCT)
-//     * @throws DAOException
-//     */
-//    public int updateQuantity(int quantity, int product_id) throws DAOException {
-//        int result = 0;
-//        String sql = "UPDATE PRODUCT "
-//                + "SET quantity_on_hand = quantity_on_hand - ? "
-//                + "WHERE product_id = ?"; // Une requête SQL paramétrée
-//        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
-//                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
-//            // On attribue les paramètres aux champs de l'enregistrement courant
-//            pstmt.setInt(1, quantity);
-//            pstmt.setInt(2, product_id);
-//            result = pstmt.executeUpdate(); // On exécute l'update du PreparedStatement
-//        } catch (SQLException ex) {
-//            Logger.getLogger("DAO").log(Level.SEVERE, null, ex);
-//            throw new DAOException(ex.getMessage());
-//        }
-//        return result;
-//    }
+
 //
 //    /**
 //     * @param debut la date de départ de la période des ventes par client
