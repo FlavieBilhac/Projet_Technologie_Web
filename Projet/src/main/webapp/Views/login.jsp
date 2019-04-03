@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Bienvenue</title>
         <!-- un CSS pour formatter la page web -->
-        <link rel="stylesheet" href="<c:url value="css/login.css"/>">
+        <link rel="stylesheet" href="<c:url value="Views/css/login.css"/>">
         <!-- On charge les polices Google -->
         <link rel="stylesheet" href="<c:url value="https://fonts.googleapis.com/css?family=Oswald:400,500|Roboto:300,400,500,700"/>">
 
