@@ -10,15 +10,17 @@
         <!-- un JS pour les fonctions AJAX et JSON -->
         <script src="Views/JavaScript/index.js"></script>
         <!-- un CSS pour formatter la page web -->
-        <!-- <link rel="stylesheet" type="text/css" href="views/css/index_client.css"> -->
+         <link rel="stylesheet" type="text/css" href="Views/css/client.css">
         <!-- On charge les polices Google -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,500|Roboto:300,400,500,700">
     </head>
     <body><center>
+        <header>
         <!-- Le bouton Déconnexion -->
         <form action="../ProjetWeb/" method="POST"> 
             <input type='submit' name='action' value='DECONNEXION'>
         </form>
+        </header>
         <h1>Liste des différents produits</h1>
         <!-- La zone où les résultats vont s'afficher -->
         <div id="products"></div>
