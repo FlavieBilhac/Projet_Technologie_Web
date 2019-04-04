@@ -324,67 +324,67 @@ public class DAO {
 //        return result;
 //    }
 //
-//    /**
-//     * @param debut la date de départ de la période des ventes par catégorie d'articles
-//     * @param fin la date de fin de la période des ventes par catégorie d'articles
-//     * @return la liste des chiffres d'affaire des ventes par catégorie d'articles durant la période choisie (tables : PRODUCT_CODE, PURCHASE_ORDER, PRODUCT)
-//     * @throws SQLException
-//     */
-//    public Map<String, Double> salesByProduct(Date debut, Date fin) throws SQLException {
-//        Map<String, Double> result = new HashMap<>(); // HashMap vide
-//        String sql = "SELECT PRODUCT_CODE.DESCRIPTION, SUM(PURCHASE_COST * QUANTITY) AS SALES "
-//                + "FROM PURCHASE_ORDER "
-//                + "INNER JOIN PRODUCT USING(PRODUCT_ID) "
-//                + "INNER JOIN PRODUCT_CODE ON PRODUCT_CODE.PROD_CODE = PRODUCT.PRODUCT_CODE "
-//                + "WHERE SALES_DATE BETWEEN ? AND ? "
-//                + "GROUP BY PRODUCT_CODE.DESCRIPTION"; // Une requête SQL paramétrée
-//        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
-//                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
-//            // On attribue les paramètres aux champs de l'enregistrement courant
-//            pstmt.setDate(1, debut);
-//            pstmt.setDate(2, fin);
-//            try (ResultSet rs = pstmt.executeQuery()) { // Un ResultSet pour parcourir les enregistrements du résultat
-//                while (rs.next()) { // Tant qu'il y a des enregistrements
-//                    // On récupère les champs nécessaires de l'enregistrement courant
-//                    String name = rs.getString("DESCRIPTION");
-//                    double sales = rs.getDouble("SALES");
-//                    // On l'ajoute à la liste des résultats
-//                    result.put(name, sales);
-//                }
-//            }
-//        }
-//        return result;
-//    }
-//
-//    /**
-//     * @param userName l'email du client
-//     * @param dateNow la date du jour
-//     * @return la liste des commandes déjà envoyées pour ce client (tables : CUSTOMER, PURCHASE_ORDER, PRODUCT)
-//     * @throws SQLException
-//     */
-//    public List listeCommandesEnvoyees(String userName, Date dateNow) throws SQLException {
-//        List result = new LinkedList<>(); // Liste vide
-//        String sql = "SELECT * FROM PURCHASE_ORDER "
-//                + "INNER JOIN CUSTOMER USING(CUSTOMER_ID) "
-//                + "INNER JOIN PRODUCT USING(PRODUCT_ID) "
-//                + "WHERE EMAIL = ? AND SALES_DATE < ? "
-//                + "ORDER BY SALES_DATE DESC"; // Une requête SQL paramétrée
-//        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
-//                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
-//            // On attribue les paramètres aux champs de l'enregistrement courant
-//            pstmt.setString(1, userName);
-//            pstmt.setDate(2, dateNow);
-//            try (ResultSet rs = pstmt.executeQuery()) { // Un ResultSet pour parcourir les enregistrements du résultat
-//                while (rs.next()) { // Tant qu'il y a des enregistrements
-//                    // On récupère le champ nécessaire de l'enregistrement courant
-//                    int order_num = rs.getInt("ORDER_NUM");
-//                    // On l'ajoute à la liste des résultats
-//                    result.add(order_num);
-//                }
-//            }
-//        }
-//        return result;
-//    }
+    /**
+     * @param debut la date de départ de la période des ventes par catégorie d'articles
+     * @param fin la date de fin de la période des ventes par catégorie d'articles
+     * @return la liste des chiffres d'affaire des ventes par catégorie d'articles durant la période choisie (tables : PRODUCT_CODE, PURCHASE_ORDER, PRODUCT)
+     * @throws SQLException
+     */
+    public Map<String, Double> salesByProduct(Date debut, Date fin) throws SQLException {
+        Map<String, Double> result = new HashMap<>(); // HashMap vide
+        String sql = "SELECT PRODUCT_CODE.DESCRIPTION, SUM(PURCHASE_COST * QUANTITY) AS SALES "
+                + "FROM PURCHASE_ORDER "
+                + "INNER JOIN PRODUCT USING(PRODUCT_ID) "
+                + "INNER JOIN PRODUCT_CODE ON PRODUCT_CODE.PROD_CODE = PRODUCT.PRODUCT_CODE "
+                + "WHERE SALES_DATE BETWEEN ? AND ? "
+                + "GROUP BY PRODUCT_CODE.DESCRIPTION"; // Une requête SQL paramétrée
+        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
+                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
+            // On attribue les paramètres aux champs de l'enregistrement courant
+            pstmt.setDate(1, debut);
+            pstmt.setDate(2, fin);
+            try (ResultSet rs = pstmt.executeQuery()) { // Un ResultSet pour parcourir les enregistrements du résultat
+                while (rs.next()) { // Tant qu'il y a des enregistrements
+                    // On récupère les champs nécessaires de l'enregistrement courant
+                    String name = rs.getString("DESCRIPTION");
+                    double sales = rs.getDouble("SALES");
+                    // On l'ajoute à la liste des résultats
+                    result.put(name, sales);
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * @param userName l'email du client
+     * @param dateNow la date du jour
+     * @return la liste des commandes déjà envoyées pour ce client (tables : CUSTOMER, PURCHASE_ORDER, PRODUCT)
+     * @throws SQLException
+     */
+    public List listeCommandesEnvoyees(String userName, Date dateNow) throws SQLException {
+        List result = new LinkedList<>(); // Liste vide
+        String sql = "SELECT * FROM PURCHASE_ORDER "
+                + "INNER JOIN CUSTOMER USING(CUSTOMER_ID) "
+                + "INNER JOIN PRODUCT USING(PRODUCT_ID) "
+                + "WHERE EMAIL = ? AND SALES_DATE < ? "
+                + "ORDER BY SALES_DATE DESC"; // Une requête SQL paramétrée
+        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
+                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
+            // On attribue les paramètres aux champs de l'enregistrement courant
+            pstmt.setString(1, userName);
+            pstmt.setDate(2, dateNow);
+            try (ResultSet rs = pstmt.executeQuery()) { // Un ResultSet pour parcourir les enregistrements du résultat
+                while (rs.next()) { // Tant qu'il y a des enregistrements
+                    // On récupère le champ nécessaire de l'enregistrement courant
+                    int order_num = rs.getInt("ORDER_NUM");
+                    // On l'ajoute à la liste des résultats
+                    result.add(order_num);
+                }
+            }
+        }
+        return result;
+    }
 }
 //
 //    
