@@ -62,6 +62,76 @@ function addCommande(product_id) {
     return false;
 }
 
+function supprCommande(order_num) {
+    $.ajax({
+        url: "supprCommande",
+        data: {"order_num": order_num, "product_id": $("#product_id" + order_num).html(), "qte": $("#qte" + order_num).html()},
+        dataType: "json",
+        success:
+                function (result) {
+                    // MaJ AJAX des produits et commandes
+                    showOrders();
+                    showProducts();
+                },
+        error: showError
+    });
+    return false;
+}
+
+// Modifier une commande
+function updateCommande(order_num, newQte, fc) {
+    $.ajax({
+        url: "updateCommande",
+        data: {"order_num": order_num, "newQte": newQte, "fc": fc, "product_id": $("#product_id" + order_num).html(), "qte": $("#newQte" + order_num).attr('name')},
+        dataType: "json",
+        success:
+                function (result) {
+                    // MaJ AJAX des produits et commandes
+                    showOrders();
+                    showProducts();
+                },
+        error: showError
+    });
+    return false;
+}
+
+function paramUpdateCommande(order_num) {
+    // Si le client décide de modifier une de ses commandes
+    if (document.getElementById("btnUpdate" + order_num).innerHTML === '<center><img src="Views/images/refresh.png" style="width: 45%; height: 45%"></center>') {
+        // Le bouton devient un bouton de validation pour valider ses changements
+        document.getElementById("btnUpdate" + order_num).innerHTML = '<center><img src="Views/images/validation.png" style="width: 45%; height: 45%"></center>';
+        let qte = document.getElementById("qte" + order_num).innerHTML;
+        let product_id = document.getElementById("product_id" + order_num).innerHTML;
+        let qteMax = document.getElementById("qteMax" + product_id).innerHTML;
+        // Créer un input pour que le client modifie la quantité du produit commandé
+        document.getElementById("qte" + order_num).innerHTML = '<input id="newQte' + order_num + '" class="qte" name="' + qte + '" value="' + qte + '" type="number" step="1" min="1" max="' + qteMax + '">';
+        let fc = document.getElementById("fc" + order_num).innerHTML;
+        // Permet de modifier la compagnie de transport
+        document.getElementById("fc" + order_num).innerHTML =
+                '<select class="fc" id="newFc' + order_num + '">\n\
+                    <option value="Coastal Freight">Coastal Freight</option>\n\
+                    <option value="FR Express">FR Express</option>\n\
+                    <option value="Poney Express">Poney Express</option>\n\
+                    <option value="Slow Snail">Slow Snail</option>\n\
+                    <option value="Southern Delivery Service">Southern Delivery Service</option>\n\
+                    <option value="We deliver">We deliver</option>\n\
+                    <option value="Western Fast">Western Fast</option>\n\
+                </select>';
+        document.getElementById("newFc" + order_num).value = fc;
+    } 
+    // Le client valide son édition
+    else {
+        // Le bouton de validation redevient un bouton de modification
+        document.getElementById("btnUpdate" + order_num).innerHTML = '<center><img src="Views/images/refresh.png" style="width: 45%; height: 45%"></center>';
+        // Nouvelle quantité
+        let newQte = document.getElementById("newQte" + order_num).value;
+        // Nouvelle compagnie de transport
+        let newFc = document.getElementById("newFc" + order_num).value;
+        // Exécute la fonction permettant la MaJ de la commande
+        updateCommande(order_num, newQte, newFc);
+    }
+}
+
 
 // Fonction qui traite les erreurs de la requête
 function showError(xhr, status, message) {
