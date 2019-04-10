@@ -2,7 +2,7 @@ $(document).ready(// Exécuté à la fin du chargement de la page
         function () {
             // On montre la liste des produits et des commandes
             showProducts();
-            //showOrders();
+            showOrders();
         }
 );
 
@@ -97,9 +97,9 @@ function updateCommande(order_num, newQte, fc) {
 
 function paramUpdateCommande(order_num) {
     // Si le client décide de modifier une de ses commandes
-    if (document.getElementById("btnUpdate" + order_num).innerHTML === '<center><img src="Views/images/refresh.png" style="width: 45%; height: 45%"></center>') {
+    if (document.getElementById("btnUpdate" + order_num).innerHTML === '<center><img src="Views/images/writing.png" style="width: 45%; height: 45%"></center>') {
         // Le bouton devient un bouton de validation pour valider ses changements
-        document.getElementById("btnUpdate" + order_num).innerHTML = '<center><img src="Views/images/validation.png" style="width: 45%; height: 45%"></center>';
+        document.getElementById("btnUpdate" + order_num).innerHTML = '<center><img src="Views/images/check.png" style="width: 45%; height: 45%"></center>';
         let qte = document.getElementById("qte" + order_num).innerHTML;
         let product_id = document.getElementById("product_id" + order_num).innerHTML;
         let qteMax = document.getElementById("qteMax" + product_id).innerHTML;
@@ -122,7 +122,7 @@ function paramUpdateCommande(order_num) {
     // Le client valide son édition
     else {
         // Le bouton de validation redevient un bouton de modification
-        document.getElementById("btnUpdate" + order_num).innerHTML = '<center><img src="Views/images/refresh.png" style="width: 45%; height: 45%"></center>';
+        document.getElementById("btnUpdate" + order_num).innerHTML = '<center><img src="Views/images/writing.png" style="width: 45%; height: 45%"></center>';
         // Nouvelle quantité
         let newQte = document.getElementById("newQte" + order_num).value;
         // Nouvelle compagnie de transport

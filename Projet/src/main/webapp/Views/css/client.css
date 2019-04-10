@@ -21,7 +21,7 @@ body {
 }
 
 @keyframes example{
-    
+
     0% {color:rgba(255, 255, 255, .75);}
     50%{color:grey;}
     100%{color:rgba(255, 255, 255, .75);}
@@ -38,7 +38,7 @@ h1{
     animation-iteration-count: 60;
     border:solid;
     padding: 5px;
-    
+
 }
 
 
@@ -83,7 +83,7 @@ table{
     border-collapse: collapse;
     text-align: center;
     color:black;
-   
+
 
 }
 /* on modifie la 1ère ligne du tableau */
@@ -94,7 +94,7 @@ th {
     border-bottom-color: black;
     padding:  10px;
     color:#1a569a;
-    
+
 
 }
 /* on modifie les autres lignes du tableau */
@@ -137,9 +137,7 @@ td:hover{
     background:rgba(255, 255, 255, .5);
     color:black;
     border:none;
-    outline:none;
-    display: inline-block;
-    appearance:none;
+   
     cursor:pointer;
     font-family: 'Roboto';
     font-size: 14px;
