@@ -21,7 +21,7 @@
             <input type='submit' name='action' value='DECONNEXION'>
         </form>
         </header>
-        <h1>Liste des différents produits</h1>
+        <h1>Nos produits</h1>
         <!-- La zone où les résultats vont s'afficher -->
         <div id="products"></div>
 
@@ -36,10 +36,11 @@
             {{#records}}
             {{! Une ligne dans la table }}
             <TR>
-            <TD>{{product_id}}</TD><TD>{{purchase_cost}}</TD><TD id="qteMax{{product_id}}">{{quantity_on_hand}}</TD><TD>{{description}}</TD>
+            <TD>{{product_id}}</TD><TD>{{purchase_cost}}€</TD><TD id="qteMax{{product_id}}">{{quantity_on_hand}}</TD><TD>{{description}}</TD>
             <TD><input class="qte" id="qte{{product_id}}" name="qte" type="number" step="1" min="1" max="{{quantity_on_hand}}" value="1"></TD>
             <TD>
-            <select class="fc" id="fc{{product_id}}">
+      
+            <select class="fc" id="fc{{product_id}}" >
             <option value="Coastal Freight">Coastal Freight</option>
             <option value="FR Express">FR Express</option>
             <option value="Poney Express">Poney Express</option>
@@ -49,7 +50,7 @@
             <option value="Western Fast">Western Fast</option>
             </select>
             </TD>
-            <TD onclick="addCommande({{product_id}})"><center><img src="Views/images/tracking.png"></center></TD> 
+            <TD onclick="addCommande({{product_id}})"><center><img src="Views/images/car2.png"></center></TD> 
 
             </TR>
             {{/records}}
