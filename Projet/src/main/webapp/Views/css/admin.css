@@ -41,52 +41,45 @@ h1{
 
 }
 
-/* Permet de modifier les inputs button */
-input[type=button]{
-    background: rgba(5,65,129,0.52);
-    box-shadow: 5px 5px 7px 0px rgba(0,0,0,0.52);
-    font-family: Oswald;
-    font-size: 11px;
-    font-weight: bold; 
-    height: 40px;
-    cursor:pointer;
-    width : 110px;
-    border:none;
-    
-}
-/* Permet de modifier les inputs button */
+/* Permet de modifier les inputs button (les trois boutons du milieu) */
 input[type=button]{
     background-color: rgba(255, 255, 255, .50);
-    color: #151515;
+    box-shadow: 5px 5px 7px 0px rgba(0,0,0,0.52);
+    font-family: Oswald;
+    font-size: 30px;
+    font-weight: bold; 
+    cursor:pointer; 
+    border:none;
     width:550px;
     height:120px;
-    font-size: 30px;
-    margin:75px;
     color: rgb(5,55,110);
+    margin:75px;
+
 }
 
+/* Permet de modifier le bouton deconnexion*/
 input[type=submit]{
-    background: #585858;
-    box-shadow: 5px 5px 7px 0px rgba(0,0,0,0.52);
+    align-content: center;
+    background-color: rgba(255,255,255,0.10);
+    border-color: silver;
+    border-width: 1px;
     font-family: 'Roboto';
-    font-size: 11px;
-    font-weight: bold; 
+    font-size: 12px;
+    font-weight: normal; 
     height: 40px;
-    cursor:pointer;
-    width : 110px;
-    border:none;
     color:silver;
 }
 
 
-/* Permet de modifier les inputs button et submit au survol de la souris */
+/* Permet de modifier le bouton deconnexion au survol de la souris */
 input[type=submit]:hover{
     color: white; 
+    cursor:pointer;
 }
 
 /* Permet de modifier les inputs button au survol de la souris */
 input[type=button]:hover{
     background-color: rgba(214, 239, 243, .90);
-    
+
 }
 
