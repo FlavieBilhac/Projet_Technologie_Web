@@ -1,0 +1,98 @@
+/* Permet de définir l'image de fond de la page */
+body {
+  background: url("../images/world.jpg") no-repeat  ;
+  background-size: cover;
+}
+
+/* Permet de modifier les titres de niveau h1, les paragraphes et les inputs date */
+h1, p, input[type=date] {
+    color: silver;
+    font-family: Oswald;
+    text-align: center;
+    letter-spacing: 2px;
+    
+}
+/* modifier le paragraphe où il y a les dates*/ 
+p{
+    font-size: 20px;
+    margin-bottom: 50px;
+    margin-top:10px;
+}
+
+
+
+/* crétion d'une animation'*/ 
+@keyframes example{
+
+    0% {color:rgba(255, 255, 255, .75);}
+    50%{color:grey;}
+    100%{color:rgba(255, 255, 255, .75);}
+}
+
+
+/* Permet de modifier les titres de niveau h1 */
+h1{
+    font-variant:small-caps;
+     border:solid;
+    padding: 5px;
+    font-size: 60px;
+    animation-name: example ;
+    animation-duration:4s;
+    animation-delay:1s;
+    animation-iteration-count: 60;
+}
+
+/* Permet de modifier les inputs date */
+input[type=date]{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    
+}
+
+/* Permet de modifier le fond derrière les graphiques */
+svg > rect{
+  
+    fill:  rgba(255, 255, 255, .45);
+   
+}
+/* modifie le texte des graphiques*/
+text{
+    font-size:15px;
+    font-weight: bold;
+}
+
+/* Permet de modifier les div ( distance et position des deux graphiques) */
+div{
+    
+    display:inline-block;
+     margin-left: 50px;
+    margin-right:50px;
+}
+
+/* Permet de modifier les inputs button et submi (boutons retour et deconnexion))*/
+input[type=button], input[type=submit]{
+    align-content: center;
+    background-color: rgba(255,255,255,0.10);
+    border-color: silver;
+    border-width: 1px;
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: normal; 
+    height: 40px;
+    
+    
+    color:silver;
+}
+
+/* Permet de modifier les inputs button et submit au survol de la souris ()boutons retour et deconnexion) */
+input[type=button]:hover, input[type=submit]:hover,input[type=date]:hover{
+    color: white;
+    cursor:pointer;
+}
+
+/* Permet de modifier le formulaire (aligner les boutons retour et deconnexion)*/
+form{
+    display:inline-block;
+}
+
