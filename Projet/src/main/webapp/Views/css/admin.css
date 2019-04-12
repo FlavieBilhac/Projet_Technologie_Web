@@ -37,6 +37,7 @@ h1{
     animation-iteration-count: 60;
     border:solid;
     padding: 5px;
+    font-variant:small-caps;
 
 }
 

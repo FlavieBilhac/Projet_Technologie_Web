@@ -4,6 +4,8 @@
 <html> 
     <head>
         <title>Statistiques</title>
+        <!-- Image d'onglet -->
+        <link rel="shortcut icon" href="Views/images/analysis.png">
         <!-- On charge JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- On charge l'API Google -->
