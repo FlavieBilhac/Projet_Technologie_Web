@@ -1,25 +1,73 @@
 /* Permet de définir l'image de fond de la page */
 body {
-    background: url("../images/bg_index.jpg") no-repeat fixed;
+    background: url("../images/fondAdmin.jpg") no-repeat fixed;
     background-size: cover; 
     margin-top:2%;
+}
+/* Permet de modifier le bouton deconnexion*/
+header{
+    font-family: 'Roboto';
+    box-sizing: content-box;
+    margin-left:0px;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:30px;
+    padding-right:30px;
+    display:flex;
+    align-items:center;
+}
+@keyframes example{
+
+    0% {color:rgba(255, 255, 255, .75);}
+    50%{color:grey;}
+    100%{color:rgba(255, 255, 255, .75);}
 }
 
 /* Permet de modifier les titres de niveau h1 */
 h1{
     color: white;
-    font-family: Ubuntu Condensed;
+    font-family: Oswald;
     text-align: center;
     letter-spacing: 2px;
     font-weight: bold;
-    font-size: 45px;
+    font-size: 60px;
+    animation-name: example ;
+    animation-duration:4s;
+    animation-delay:1s;
+    animation-iteration-count: 60;
+    border:solid;
+    padding: 5px;
+
 }
 
-/* Permet de modifier les inputs button et submit */
-input[type=button], input[type=submit]{
+/* Permet de modifier les inputs button */
+input[type=button]{
+    background: rgba(5,65,129,0.52);
+    box-shadow: 5px 5px 7px 0px rgba(0,0,0,0.52);
+    font-family: Oswald;
+    font-size: 11px;
+    font-weight: bold; 
+    height: 40px;
+    cursor:pointer;
+    width : 110px;
+    border:none;
+    
+}
+/* Permet de modifier les inputs button */
+input[type=button]{
+    background-color: rgba(255, 255, 255, .50);
+    color: #151515;
+    width:550px;
+    height:120px;
+    font-size: 30px;
+    margin:75px;
+    color: rgb(5,55,110);
+}
+
+input[type=submit]{
     background: #585858;
-    box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.52);
-    font-family: verdana, arial, sans-serif;
+    box-shadow: 5px 5px 7px 0px rgba(0,0,0,0.52);
+    font-family: 'Roboto';
     font-size: 11px;
     font-weight: bold; 
     height: 40px;
@@ -29,21 +77,15 @@ input[type=button], input[type=submit]{
     color:silver;
 }
 
+
 /* Permet de modifier les inputs button et submit au survol de la souris */
-input[type=button]:hover, input[type=submit]:hover{
+input[type=submit]:hover{
     color: white; 
 }
 
 /* Permet de modifier les inputs button au survol de la souris */
 input[type=button]:hover{
-    background: rgba(184, 137, 44, 0.4);
+    background-color: rgba(214, 239, 243, .90);
+    
 }
 
-/* Permet de modifier les inputs button */
-input[type=button]{
-    background: transparent;
-    color: #151515;
-    width:550px;
-    height:120px;
-    font-size: 30px;
-}
