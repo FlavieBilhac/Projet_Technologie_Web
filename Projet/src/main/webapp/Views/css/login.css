@@ -4,7 +4,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Permet de centrer tous les élements du body et de définir l'image de fond de la page */
+/* Permet de centrer tous les élements du body et de définir le background de la page */
 body {
   margin: 0;
   padding: 0;
@@ -13,31 +13,31 @@ body {
   background: url("../images/bg_login.jpg");
 }
 
-/* Permet de réaliser la loginBox  */
+/* Permet de réaliser la loginBox (carré contenant l'identifiant, le mot de passe et le bouton)  */
 .loginBox {
   position: absolute;
   top: 52.5%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* centre la loginbox */
   width: 350px;
   height: 380px;
   padding: 80px 40px;
-  box-sizing: border-box;
+  box-sizing: border-box; /*adapte taille de la box*/
   background: rgba(0, 26, 51, .9);
 }
 
-/* Permet de modifier logo */
+/* Permet de modifier logo de connexion */
 .lock {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  overflow: hidden;
+  overflow: hidden; /* gère le dépassement, permet de rogner si besoin*/
   position: absolute;
-  top: calc(-100px/2);
+  top: calc(-100px/2); /* on positionne le logo au bon endroit */
   left: calc(50% - 50px);
 }
 
-/* Permet de modifier les titres de niveau h2 */
+/* Permet de modifier les titres de niveau h2, ici connexion */
 h2 {
   font-family: 'Dosis';
   letter-spacing: 2px;
@@ -53,10 +53,10 @@ h2 {
   padding: 0;
   color: rgb(247,248,249);
   font-family:'Dosis';
-  letter-spacing: 2px;
+  letter-spacing: 2px; /* espace les lettres*/
 }
 
-/* Permet de modifier les inputs */
+/* Permet de modifier la position des inputs */
 .loginBox input {
   width: 100%;
   margin-bottom: 20px;
@@ -65,9 +65,8 @@ h2 {
 /* Permet de modifier les inputs text et password */
 .loginBox input[type="text"], .loginBox input[type="password"] {
   border: none;
-  border-bottom: 1px solid #fff;
-  background: transparent;
-  outline: none;
+  border-bottom: 1px solid #fff; /* ajoute la ligne en dessous */
+  background: transparent; /* rend les inputs transparents*/
   height: 40px;
   color: rgb(247,248,249);
   font-family:'Dosis';
@@ -80,18 +79,18 @@ h2 {
   color: rgba(255, 255, 255, .5);
 }
 
-/* Permet de modifier les inputs submit */
+/* Permet de modifier les inputs submit (bouton "se connecter") */
 .loginBox input[type="submit"] {
-  border: none;
-  outline: none;
+  border: none;/*enlève les bordures*/
+  outline: none;/*enlève les contours*/
   height: 40px;
   color: rgb(247,248,249);
   font-family:'Dosis';
   letter-spacing: 2px;
   font-size: 16px;
   background: #175181;
-  cursor: pointer;
-  border-radius:10px 100px / 120px;
+  cursor: pointer; /* change la forme du curseur quand il est au dessus de l'objet*/
+  border-radius:10px 100px / 120px; /* permet d'arrondir les  2 angle opposés */
 }
 
 /* Permet de modifier les inputs submit au survol de la souris */
@@ -100,11 +99,5 @@ h2 {
   color: rgb(247,248,249);
 }
 
-/* Permet de modifier les liens */
-.loginBox a {
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-}
+
 
