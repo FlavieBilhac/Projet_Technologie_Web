@@ -80,7 +80,7 @@
         
         <!-- La période sur laquelle porte la statistique -->
         <p>Date de début : <input type="date" id="datePickerDebut" onchange="doAjax()" value="2011-01-01">
-            Date de fin : <input type="date" id="datePickerFin" onchange="doAjax()" value="2018-04-20"></p>
+            Date de fin : <input type="date" id="datePickerFin" onchange="doAjax()" value="2019-04-20"></p>
 
         <!-- Le diagramme en secteurs apparaît ici -->
         <div id="piechart" style="width: 725px; height: 500px;"></div>
