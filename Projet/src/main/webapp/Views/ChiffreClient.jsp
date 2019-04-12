@@ -31,15 +31,7 @@
                 chart.draw(data, options);
             }
 
-            // La fonction permettant de dessiner l'histogramme
-            function drawHistogram(dataArray) {
-                var data = google.visualization.arrayToDataTable(dataArray);
-                var options = {
-                    colors: ['#EC644B']
-                };
-                var chart = new google.visualization.Histogram(document.getElementById('histogram'));
-                chart.draw(data, options);
-            }
+           
 
             // Afficher les ventes par client
             function doAjax() {
@@ -58,7 +50,7 @@
                                 }
                                 // On dessine les graphiques
                                 drawChart(chartData);
-                                drawHistogram(chartData);
+                                
                             },
                     error: showError
                 });
@@ -84,7 +76,6 @@
 
         <!-- Le diagramme en secteurs apparaît ici -->
         <div id="piechart" style="width: 725px; height: 500px;"></div>
-        <!-- L'histogramme apparaît ici -->
-        <div id="histogram" style="width: 725px; height: 450px;"></div>
+        
     </body>
 </html>

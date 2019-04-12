@@ -62,12 +62,11 @@ text{
     font-weight: bold;
 }
 
-/* Permet de modifier les div ( distance et position des deux graphiques) */
+/* Permet de modifier les div ( distance et position du graphique) */
 div{
     
-    display:inline-block;
-     margin-left: 50px;
-    margin-right:50px;
+margin:0 auto;
+
 }
 
 /* Permet de modifier les inputs button et submi (boutons retour et deconnexion))*/
