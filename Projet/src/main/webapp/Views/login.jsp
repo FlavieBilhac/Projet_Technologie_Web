@@ -27,7 +27,7 @@
                 <p>Mot de passe</p>
                 <input type='password' name='passwordParam' required>
                 <!-- Le bouton Connexion -->
-                <input type='submit' name='action' value='Connexion'>
+                <input type='submit' name='action' value='Se connecter'>
             </form>
         </div>
     </body>

@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Page admin</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bienvenue</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- On charge les polices Google -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,500|Roboto:300,400,500,700|Ubuntu+Condensed">
+        <!-- un CSS pour formatter la page web -->
+        <link rel="stylesheet" href="views/css/index_admin.css">
     </head>
-    <body>
-        <div>page admin</div>
+    <body><center>
+        <!-- Le bouton Déconnexion -->
+        <form action="../ProjetWeb/" method="POST"> <input type='submit' name='action' value='DECONNEXION'></form>
+        <h1>Statistiques des Chiffres d'Affaires</h1><br/><br/>
+        <!-- Les boutons de redirection vers les différents chiffres d'affaire -->
+        <input type="button" onclick='location.href="Views/ChiffreClient.jsp"' value=">> Clients <<"><br/><br/><br/><br/>
+        <input type="button" onclick='location.href="Views/ChiffreZoneGeo.jsp"' value=">> Zones géographiques <<"><br/><br/><br/><br/>
+        <input type="button" onclick='location.href="Views/ChiffreCateg.jsp"' value=">> Catégories d'articles <<">
+    </center>
     </body>
 </html>
