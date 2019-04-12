@@ -1,6 +1,6 @@
 /* Permet de définir l'image de fond de la page */
 body {
-  background: url("../images/world.jpg") no-repeat fixed ;
+  background: url("../images/world.jpg") no-repeat  ;
   background-size: cover;
 }
 
@@ -10,8 +10,18 @@ h1, p, input[type=date] {
     font-family: Oswald;
     text-align: center;
     letter-spacing: 2px;
-    font-size: 17px;
+    
 }
+/* modifier le paragraphe où il y a les dates*/ 
+p{
+    font-size: 20px;
+    margin-bottom: 50px;
+    margin-top:10px;
+}
+
+
+
+/* crétion d'une animation'*/ 
 @keyframes example{
 
     0% {color:rgba(255, 255, 255, .75);}
@@ -22,69 +32,67 @@ h1, p, input[type=date] {
 
 /* Permet de modifier les titres de niveau h1 */
 h1{
+    font-variant:small-caps;
      border:solid;
     padding: 5px;
-    font-size: 45px;
+    font-size: 60px;
     animation-name: example ;
     animation-duration:4s;
     animation-delay:1s;
     animation-iteration-count: 60;
 }
 
-/* Permet de modifier les paragraphes */
-p{
-/*    font-weight: bold;*/
-    font-size: 20px;
-    text-align:center;
-}
-
-/* Permet de modifier les balises "text" */
-text{
-    font-weight: bold;
-    fill:#F5A9A9;  
-}
-
 /* Permet de modifier les inputs date */
 input[type=date]{
     background-color: transparent;
     border: none;
+    font-size: 20px;
+    
 }
 
-/* Permet de modifier les balises "rect" qui se trouvent à l'intérieur des balises "svg" */
+/* Permet de modifier le fond derrière les graphiques */
 svg > rect{
-    fill:  transparent;
+  
+    fill:  rgba(255, 255, 255, .45);
+   
+}
+/* modifie le texte des graphiques*/
+text{
+    font-size:15px;
+    font-weight: bold;
 }
 
-/* Permet de modifier les div */
+/* Permet de modifier les div ( distance et position des deux graphiques) */
 div{
+    
     display:inline-block;
+     margin-left: 50px;
+    margin-right:50px;
 }
 
-/* Permet de modifier les inputs button et submit */
+/* Permet de modifier les inputs button et submi (boutons retour et deconnexion))*/
 input[type=button], input[type=submit]{
-    background: #585858;
-    box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.52);
-    font-family: verdana, arial, sans-serif;
-    font-size: 11px;
-    font-weight: bold; 
+    align-content: center;
+    background-color: rgba(255,255,255,0.10);
+    border-color: silver;
+    border-width: 1px;
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: normal; 
     height: 40px;
-    cursor:pointer;
-    width : 100px;
-    border:none;
+    
+    
     color:silver;
 }
 
-/* Permet de modifier les inputs button et submit au survol de la souris */
-input[type=button]:hover, input[type=submit]:hover{
-    color: white; 
+/* Permet de modifier les inputs button et submit au survol de la souris ()boutons retour et deconnexion) */
+input[type=button]:hover, input[type=submit]:hover,input[type=date]:hover{
+    color: white;
+    cursor:pointer;
 }
 
-/* Permet de modifier le formulaire */
+/* Permet de modifier le formulaire (aligner les boutons retour et deconnexion)*/
 form{
     display:inline-block;
 }
 
-/* Permet de modifier les inputs submit */
-input[type=submit]{
-    width:110px;
-}
