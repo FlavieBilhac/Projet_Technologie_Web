@@ -38,7 +38,7 @@ public class ControleLogin extends HttpServlet{
         String action = request.getParameter("action");
         if (null != action) {
             switch (action) {
-                case "Connexion":
+                case "Se connecter":
                     checkLogin(request);
                     break;
                 case "DECONNEXION":
