@@ -9,18 +9,17 @@ and open the template in the editor.
 */
 *{box-sizing:border-box;}
 
-body {
 
+/* mettre une image de fond, définir la police du body*/
+body {
     background: url("../images/satellite.jpg")no-repeat fixed ;
     background-size: cover;
     font-family:"Oswald";
     font-size: 0.8em;
     color:black;
-    
-
 
 }
-
+/* créer une animation*/
 @keyframes example{
 
     0% {color:rgba(255, 255, 255, .75);}
@@ -28,6 +27,7 @@ body {
     100%{color:rgba(255, 255, 255, .75);}
 }
 
+/* modifie les titres h1*/
 h1{
     color:rgba(255, 255, 255, .75);
     font-size:60px;
@@ -42,9 +42,8 @@ h1{
 
 }
 
-
+/* modifie le header (position du bouton deconnexion)*/
 header{
-    font-family: 'Roboto';
     box-sizing: content-box;
     margin-left:0px;
     padding-top:5px;
@@ -54,6 +53,8 @@ header{
     display:flex;
     align-items:center;
 }
+
+/* modifie le bouton deconnexion*/
 input[type=submit]{
 
     align-content: center;
@@ -69,15 +70,14 @@ input[type=submit]{
     color:silver;
 }
 
-/* Permet de modifier les inputs submit au survol de la souris */
+/* Permet de modifier le bouton deconnexion au survol de la souris */
 input[type=submit]:hover{
-    color: black; 
+    color: white; 
 }
 
-
+/* Permet de modifier le tableau */
 table{
     font-family: 'Roboto';
-    font-size: 14px;
     border:solid ;
     border-width: 1px;
     border-color:black;
@@ -88,14 +88,12 @@ table{
 
 }
 /* on modifie la 1ère ligne du tableau */
-th {
-    font-family: 'Roboto';
+th {   
     font-size: 20px;
     background-color: rgba(255, 255, 255, .75);
     border-bottom-color: black;
     padding:  10px;
     color:#1a569a;
-
 
 }
 /* on modifie les autres lignes du tableau */
@@ -103,9 +101,7 @@ th {
 td {
     border-bottom:  1px solid black;
     border-top:1px solid black;
-    padding: 2px;
-    cursor: pointer;
-    position: relative;
+    padding: 2px;  
     background-color: rgba(255, 255, 255, .5);
     font-size:15px;
 }
@@ -118,21 +114,19 @@ tr:hover{
 /* Permet de modifier la case survolée */
 td:hover{
     background-color: rgb(255, 255, 255);
-    border: 4px solid black;
+    border: 2px solid black;
+    cursor: pointer;
 }
 
-/* Permet de modifier les class "btn", "qte" et "fc" */
-.btn, .qte, .fc{
-    margin-top: 1px;
-    margin-bottom: 1px;
-}
+
 
 /* Permet de modifier la class "qte" des quantité de produit*/
 .qte{
-    width: 40px;
+    width: 45px;
 }
 
-.fc, .fc option, .qte {
+/* Permet de modifier les cases quantité et compagnies de transport*/
+.fc, .qte {
     padding:5px;
     border-radius:10px 100px / 120px;
     background:rgba(255, 255, 255, .5);
@@ -145,7 +139,7 @@ td:hover{
 
 }
 
-table.img{
-    width:50px;
-    height:50px;
+/* marge en bas du deuxième tableau*/
+#orders{
+    margin-bottom: 125px;
 }
