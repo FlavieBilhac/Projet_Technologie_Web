@@ -259,71 +259,71 @@ public class DAO {
     }
 
 
-//
-//    /**
-//     * @param debut la date de départ de la période des ventes par client
-//     * @param fin la date de fin de la période des ventes par client
-//     * @return la liste des chiffres d'affaire des ventes par client durant la période choisie (tables : CUSTOMER, PURCHASE_ORDER, PRODUCT)
-//     * @throws SQLException
-//     */
-//    public Map<String, Double> salesByCustomer(Date debut, Date fin) throws SQLException {
-//        Map<String, Double> result = new HashMap<>(); // HashMap vide
-//        String sql = "SELECT NAME, SUM(PURCHASE_COST * QUANTITY) AS SALES "
-//                + "FROM CUSTOMER "
-//                + "INNER JOIN PURCHASE_ORDER USING(CUSTOMER_ID) "
-//                + "INNER JOIN PRODUCT USING(PRODUCT_ID) "
-//                + "WHERE SALES_DATE BETWEEN ? AND ? "
-//                + "GROUP BY NAME"; // Une requête SQL paramétrée
-//        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
-//                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
-//            // On attribue les paramètres aux champs de l'enregistrement courant
-//            pstmt.setDate(1, debut);
-//            pstmt.setDate(2, fin);
-//            try (ResultSet rs = pstmt.executeQuery()) { // Un ResultSet pour parcourir les enregistrements du résultat
-//                while (rs.next()) { // Tant qu'il y a des enregistrements
-//                    // On récupère les champs nécessaires de l'enregistrement courant
-//                    String name = rs.getString("NAME");
-//                    double sales = rs.getDouble("SALES");
-//                    // On l'ajoute à la liste des résultats
-//                    result.put(name, sales);
-//                }
-//            }
-//        }
-//        return result;
-//    }
-//
-//    /**
-//     * @param debut la date de départ de la période des ventes par zone géographique
-//     * @param fin la date de fin de la période des ventes par zone géographique
-//     * @return la liste des chiffres d'affaire des ventes par zone géographique durant la période choisie (tables : CUSTOMER, PURCHASE_ORDER, PRODUCT)
-//     * @throws SQLException
-//     */
-//    public Map<String, Double> salesByZone(Date debut, Date fin) throws SQLException {
-//        Map<String, Double> result = new HashMap<>(); // HashMap vide
-//        String sql = "SELECT STATE, SUM(PURCHASE_COST * QUANTITY) AS SALES "
-//                + "FROM CUSTOMER "
-//                + "INNER JOIN PURCHASE_ORDER USING(CUSTOMER_ID) "
-//                + "INNER JOIN PRODUCT USING(PRODUCT_ID) "
-//                + "WHERE SALES_DATE BETWEEN ? AND ? "
-//                + "GROUP BY STATE"; // Une requête SQL paramétrée
-//        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
-//                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
-//            // On attribue les paramètres aux champs de l'enregistrement courant
-//            pstmt.setDate(1, debut);
-//            pstmt.setDate(2, fin);
-//            try (ResultSet rs = pstmt.executeQuery()) { // Un ResultSet pour parcourir les enregistrements du résultat
-//                while (rs.next()) { // Tant qu'il y a des enregistrements
-//                    // On récupère les champs nécessaires de l'enregistrement courant
-//                    String name = rs.getString("STATE");
-//                    double sales = rs.getDouble("SALES");
-//                    // On l'ajoute à la liste des résultats
-//                    result.put(name, sales);
-//                }
-//            }
-//        }
-//        return result;
-//    }
-//
+
+    /**
+     * @param debut la date de départ de la période des ventes par client
+     * @param fin la date de fin de la période des ventes par client
+     * @return la liste des chiffres d'affaire des ventes par client durant la période choisie (tables : CUSTOMER, PURCHASE_ORDER, PRODUCT)
+     * @throws SQLException
+     */
+    public Map<String, Double> salesByCustomer(Date debut, Date fin) throws SQLException {
+        Map<String, Double> result = new HashMap<>(); // HashMap vide
+        String sql = "SELECT NAME, SUM(PURCHASE_COST * QUANTITY) AS SALES "
+                + "FROM CUSTOMER "
+                + "INNER JOIN PURCHASE_ORDER USING(CUSTOMER_ID) "
+                + "INNER JOIN PRODUCT USING(PRODUCT_ID) "
+                + "WHERE SALES_DATE BETWEEN ? AND ? "
+                + "GROUP BY NAME"; // Une requête SQL paramétrée
+        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
+                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
+            // On attribue les paramètres aux champs de l'enregistrement courant
+            pstmt.setDate(1, debut);
+            pstmt.setDate(2, fin);
+            try (ResultSet rs = pstmt.executeQuery()) { // Un ResultSet pour parcourir les enregistrements du résultat
+                while (rs.next()) { // Tant qu'il y a des enregistrements
+                    // On récupère les champs nécessaires de l'enregistrement courant
+                    String name = rs.getString("NAME");
+                    double sales = rs.getDouble("SALES");
+                    // On l'ajoute à la liste des résultats
+                    result.put(name, sales);
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * @param debut la date de départ de la période des ventes par zone géographique
+     * @param fin la date de fin de la période des ventes par zone géographique
+     * @return la liste des chiffres d'affaire des ventes par zone géographique durant la période choisie (tables : CUSTOMER, PURCHASE_ORDER, PRODUCT)
+     * @throws SQLException
+     */
+    public Map<String, Double> salesByZone(Date debut, Date fin) throws SQLException {
+        Map<String, Double> result = new HashMap<>(); // HashMap vide
+        String sql = "SELECT STATE, SUM(PURCHASE_COST * QUANTITY) AS SALES "
+                + "FROM CUSTOMER "
+                + "INNER JOIN PURCHASE_ORDER USING(CUSTOMER_ID) "
+                + "INNER JOIN PRODUCT USING(PRODUCT_ID) "
+                + "WHERE SALES_DATE BETWEEN ? AND ? "
+                + "GROUP BY STATE"; // Une requête SQL paramétrée
+        try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
+                PreparedStatement pstmt = connection.prepareStatement(sql)) { // On crée un PreparedStatement pour exécuter la requête paramétrée
+            // On attribue les paramètres aux champs de l'enregistrement courant
+            pstmt.setDate(1, debut);
+            pstmt.setDate(2, fin);
+            try (ResultSet rs = pstmt.executeQuery()) { // Un ResultSet pour parcourir les enregistrements du résultat
+                while (rs.next()) { // Tant qu'il y a des enregistrements
+                    // On récupère les champs nécessaires de l'enregistrement courant
+                    String name = rs.getString("STATE");
+                    double sales = rs.getDouble("SALES");
+                    // On l'ajoute à la liste des résultats
+                    result.put(name, sales);
+                }
+            }
+        }
+        return result;
+    }
+
     /**
      * @param debut la date de départ de la période des ventes par catégorie d'articles
      * @param fin la date de fin de la période des ventes par catégorie d'articles
