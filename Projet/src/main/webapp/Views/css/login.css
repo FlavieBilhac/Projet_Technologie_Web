@@ -6,11 +6,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 /* Permet de centrer tous les élements du body et de définir le background de la page */
 body {
-  margin: 0;
-  padding: 0;
-  background-size: contain;
-  background-position: bottom 0px right 0px;
-  background: url("../images/bg_login.jpg");
+ background: url("../images/bg_login.jpg") no-repeat;
+ background-size: cover;
 }
 
 /* Permet de réaliser la loginBox (carré contenant l'identifiant, le mot de passe et le bouton)  */
